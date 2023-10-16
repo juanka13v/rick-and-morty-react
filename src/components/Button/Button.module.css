@@ -1,0 +1,45 @@
+/* Button.module.css */
+.button {
+  border-radius: 15px;
+  border: 1px solid var(--black);
+  cursor: pointer;
+}
+
+.button a,
+.button span {
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 18px;
+  text-transform: capitalize;
+}
+
+.button.large {
+  border-radius: 20px;
+}
+
+.large a,
+.large span {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 20px;
+}
+
+.outline {
+  border: 1px solid var(--black);
+  color: var(--black);
+}
+
+.outline:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.primary {
+  background: var(--black);
+  color: var(--white);
+}
+
+.primary:hover {
+  background: var(--white);
+  color: var(--black);
+}
