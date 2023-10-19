@@ -1,5 +1,6 @@
 import styles from "./SearchInput.module.css";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 const SearchInput = ({ size }) => {
   return (
@@ -10,7 +11,7 @@ const SearchInput = ({ size }) => {
         placeholder="Search Character"
       />
       <Button type="primary" size={size === "big" && "large"}>
-        <a href="/search">Search</a>
+        <Link to="/search">Search</Link>
       </Button>
     </div>
   );

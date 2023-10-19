@@ -1,12 +1,13 @@
 import styles from "./Logo.module.css";
 import RickAndMorty from "../../assets/RickAndMorty-Logo.svg";
+import { Link } from "react-router-dom";
 
 const Logo = ({size}) => {
   return (
     <span className={`${styles.logo} ${styles[size]}`}>
-      <a href="/">
+      <Link to="/">
         <img src={RickAndMorty} alt="rick and morty logo" className={styles.img}  />
-      </a>
+      </Link>
     </span>
   );
 };
