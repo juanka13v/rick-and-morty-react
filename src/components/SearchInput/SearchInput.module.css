@@ -6,8 +6,7 @@
 
 .input {
     border: none;
-    flex: 1;
-    max-width: 500px;
+    width: clamp(150px, 50vw, 450px);
     font-size: 14px;
     font-weight: 600;
     font-family: var(--font-nunito-sans);
