@@ -1,0 +1,67 @@
+.card {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    background: var(--black);
+    border-radius: 24px;
+    position: relative;
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.header span {
+    font-size: .8rem;
+    letter-spacing: 2px;
+    padding: 6px 20px;
+    border-radius: 22px;
+    background: var(--green);
+    color: var(--white);
+}
+
+.header .alive {
+    background: var(--green);
+}
+
+.header .dead {
+    background: var(--red);
+}
+
+.header .unknown {
+    background: var(--black);
+}
+
+.body {
+    flex: 1;
+    height: 40%;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.data {
+    display: flex;
+    justify-content: space-between;
+    font-size: .8rem;
+}
+
+.data span {
+    font-weight: 600;
+    color: var(--white);
+}
