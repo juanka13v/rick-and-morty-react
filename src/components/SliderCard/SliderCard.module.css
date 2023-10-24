@@ -1,67 +1,95 @@
 .card {
-    width: 250px;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 10px;
-    background: var(--black);
-    border-radius: 24px;
-    position: relative;
+  margin: 10px;
+  padding: 5px;
+  background: var(--black);
+  border-radius: 20px;
+  position: relative; 
+  display: flex;
+  overflow: hidden;
 }
 
-.header {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+.status {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  color: var(--white);
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 6px 20px;
+  border-radius: 14px;
+  background: var(--black);
 }
 
-.header span {
-    font-size: .8rem;
-    letter-spacing: 2px;
-    padding: 6px 20px;
-    border-radius: 22px;
-    background: var(--green);
-    color: var(--white);
+.status.dead {
+  background: var(--red);
 }
 
-.header .alive {
-    background: var(--green);
+.status.alive {
+  background: var(--green);
 }
 
-.header .dead {
-    background: var(--red);
+.status.unknown {
+  background: var(--dark-gray);
 }
 
-.header .unknown {
-    background: var(--black);
+
+.link {
+  position: absolute;
+  display: block;
+  inset: 0;
+  z-index: 99;
 }
+
 
 .body {
-    flex: 1;
-    height: 40%;
+  width: 100%;
+  height: 100%;
 }
 
-.image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 24px;
+.body img {
+  width: 100%;
+  border-radius: 15px;
+  height: auto;
 }
+
 
 .footer {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  position: absolute;
+  background: var(--black);
+  width: calc(100% - 10px);
+  bottom: 5px;
+  border-radius: 0 0 15px 15px;
+  transform: translateY(calc(15px + .875rem));
+  transition: all .5s ease;
 }
 
-.data {
-    display: flex;
-    justify-content: space-between;
-    font-size: .8rem;
+.card:hover .footer {
+  transform: translateY(0);
 }
 
-.data span {
-    font-weight: 600;
-    color: var(--white);
+.footer h2{
+  text-align: end;
+  color: var(--white);
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-size: var(--font-nunito-sans);
+  letter-spacing: 3px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.footer p{
+  text-align: end;
+  margin-top: 10px;
+  color: var(--gray);
+  font-size: .875rem;
+  font-weight: 400;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
