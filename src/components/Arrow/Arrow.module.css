@@ -1,0 +1,10 @@
+.button {
+    display: block;
+    cursor: pointer;
+    transform: translateY(-30px);
+}
+
+.button i {
+    font-size: 2rem;
+    color: var(--black);
+}
