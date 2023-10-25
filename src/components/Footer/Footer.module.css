@@ -36,7 +36,7 @@
 
 .social ul li a {
   font-size: 30px;
-  color: var(--purple);
+  color: var(--green);
 }
 
 .social ul li a:hover {
@@ -57,7 +57,7 @@
 }
 
 .links li a {
-  color: var(--purple);
+  color: var(--green);
   font-size: 0.9rem;
   font-weight: 400;
 }
