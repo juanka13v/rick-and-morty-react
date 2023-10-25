@@ -19,7 +19,7 @@
   font-weight: 600;
   font-size: 18px;
   text-transform: capitalize;
-  color: var(--gray);
+  color: var(--black);
 }
 
 .item::after {
@@ -29,12 +29,12 @@
   height: 3px;
   bottom: -6px;
   left: 50%;
-  background-color: var(--black);
+  background-color: var(--green);
   transition: all 0.3s ease-in-out;
 }
 
 .item.active {
-  color: var(--black);
+  color: var(--green);
 }
 
 .item.active::after {
@@ -43,7 +43,7 @@
 }
 
 .item:hover {
-  color: var(--black);
+  color: var(--green);
 }
 
 .item:hover::after {
