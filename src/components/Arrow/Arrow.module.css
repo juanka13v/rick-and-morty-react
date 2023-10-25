@@ -1,7 +1,6 @@
 .button {
     display: block;
     cursor: pointer;
-    transform: translateY(-30px);
 }
 
 .button i {
