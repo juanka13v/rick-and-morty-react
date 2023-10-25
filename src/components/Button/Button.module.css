@@ -43,3 +43,14 @@
   background: var(--white);
   color: var(--black);
 }
+
+.secondary {
+  background: var(--white);
+  color: var(--black);
+}
+
+.secondary:hover {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--white);
+}
