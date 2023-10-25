@@ -1,0 +1,60 @@
+.container {
+  padding: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header {
+  display: flex;
+  margin: 0 10px;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.header h3 {
+  color: var(--black);
+  font-size: clamp(1.1rem, 5vw, 1.9rem);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.header a {
+  display: flex;
+  align-items: center;
+  color: var(--black);
+  font-size: clamp(0.875rem, 5vw, 1.1rem);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.header a i {
+  font-size: 1.2rem;
+}
+
+.header a:hover {
+  color: var(--green);
+}
+
+.slider {
+  margin-bottom: 10px;
+}
+
+.footer {
+  display: flex;
+  margin: 0 10px;
+  justify-content: end;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.separator {
+  border: none;
+  border-top: 1px solid var(--green);
+  margin: 0 0 0 10px;
+}
