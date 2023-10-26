@@ -1,0 +1,106 @@
+.container {
+  margin: 2rem 0;
+  padding: 1rem;
+  border-radius: 22px;
+  background: var(--black);
+  display: flex;
+  gap: 20px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.content h4 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: var(--font-nunito-sans);
+  letter-spacing: 2px;
+  color: var(--gray);
+  margin-bottom: 15px;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rows div {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
+  border-bottom: thin solid var(--green);
+}
+
+.rows div span:first-child {
+  color: var(--gray);
+}
+
+.rows div span:nth-child(2) {
+  color: var(--white);
+}
+
+.episodes {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.item {
+  border: thin solid var(--green);
+  background: var(--black);
+  padding: 5px;
+  font-size: 0.8rem;
+  color: var(--white);
+  font-weight: 800;
+}
+
+.image {
+  margin: auto 0;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+@media (width < 480) {
+  .container {
+    padding: 1rem;
+  }
+}
+
+
+@media (width < 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .image {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .rows div span:first-child {
+    font-size: .875rem;
+  }
+  
+  .rows div span:nth-child(2) {
+    font-size: .875rem;
+    text-align: end;
+  }
+
+  .rows {
+    gap: 10px;
+  }
+}
