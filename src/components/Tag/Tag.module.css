@@ -1,0 +1,21 @@
+.tag {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--green);
+    outline: 1px solid var(--green);
+    cursor: pointer;
+    margin-left: 6px;
+}
+
+.tag:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
+.tag.active {
+    background: var(--green);
+    color: var(--white);
+}
