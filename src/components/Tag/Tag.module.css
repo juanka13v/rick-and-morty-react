@@ -5,9 +5,8 @@
     font-size: .9rem;
     font-weight: 600;
     color: var(--green);
-    outline: 1px solid var(--green);
+    border: 1px solid var(--green);
     cursor: pointer;
-    margin-left: 6px;
 }
 
 .tag:hover {
