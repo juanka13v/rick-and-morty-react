@@ -1,0 +1,45 @@
+.accordion {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--black);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: thin solid var(--black);
+}
+
+.header h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.header span i {
+  font-size: 2rem;
+  color: var(--green);
+  cursor: pointer;
+  transition: transform 0.6s ease-in-out;
+}
+
+.icon {
+  transform: rotate(180deg);
+}
+
+.body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease-in-out;
+}
+
+.body.open {
+  max-height: 1000px;
+}
+
+.innerBody {
+  padding: 12px 0;
+}
