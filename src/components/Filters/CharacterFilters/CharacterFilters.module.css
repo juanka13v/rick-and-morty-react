@@ -1,0 +1,42 @@
+.filters {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+
+.filters div:first-child {
+  grid-area: status;
+  flex: 2;
+}
+
+.filters div:nth-child(2) {
+  grid-area: gender;
+  flex: 2;
+}
+
+.filters div:nth-child(3) {
+  grid-area: specie;
+  flex: 3;
+}
+
+@media (width < 768px) {
+  .filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    grid-template-areas:
+      "status status gender gender"
+      "specie specie specie specie";
+  }
+}
+
+@media (width < 420px) {
+  .filters {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "status"
+      "gender"
+      "specie";
+  }
+}
