@@ -19,7 +19,7 @@ const Pagination = ({ info, currentPage, handlePage }) => {
             scrollToTop();
           }}
         >
-          <i class="bx bx-left-arrow-alt"></i>
+          <i className="bx bx-left-arrow-alt"></i>
         </span>
       )}
 
@@ -44,7 +44,7 @@ const Pagination = ({ info, currentPage, handlePage }) => {
             scrollToTop();
           }}
         >
-          <i class="bx bx-right-arrow-alt"></i>
+          <i className="bx bx-right-arrow-alt"></i>
         </span>
       )}
     </div>
