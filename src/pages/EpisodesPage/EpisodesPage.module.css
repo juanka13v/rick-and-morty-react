@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+  gap: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.name {
+  color: var(--black);
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  font-weight: 600;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.name span {
+  color: var(--green);
+}
+
+.episode {
+  color: var(--green);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.date {
+  color: var(--black);
+  font-size: 1rem;
+  font-weight: 800;
+  text-align: center;
+  text-wrap: balance;
+  text-transform: capitalize;
+}
+
+.date span {
+    color: var(--green);
+}
