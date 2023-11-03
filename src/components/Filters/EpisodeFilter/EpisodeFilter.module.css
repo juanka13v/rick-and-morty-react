@@ -1,0 +1,29 @@
+.season {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.season h2 {
+  font-size: 1.1rem;
+  color: var(--black);
+  font-weight: 600;
+}
+
+.tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.accordion {
+    display: grid;
+    gap: 10px 15px;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (width < 420px) {
+    .accordion {
+        grid-template-columns: 1fr;
+    }
+}
