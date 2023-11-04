@@ -3,11 +3,7 @@ import styles from "./Grid.module.css";
 
 const Grid = ({ characters }) => {
   if (!characters || characters.length < 1) {
-    return (
-      <section className={styles.grid}>
-        <h2 className={styles.error}>There are not characters.</h2>
-      </section>
-    );
+    return null;
   }
 
   return (
