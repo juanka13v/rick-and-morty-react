@@ -28,6 +28,7 @@ const EpisodesPage = () => {
     if (data.error) {
       setError(data);
       setIsLoading(false);
+      return
     }
 
     const charactersData = await getCharactersByUrls(data.characters);
