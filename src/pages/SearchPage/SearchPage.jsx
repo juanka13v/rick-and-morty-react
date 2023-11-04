@@ -4,11 +4,15 @@ import Pagination from "../../Components/Pagination/Pagination";
 import CharacterFilters from "../../Components/Filters/CharacterFilters/CharacterFilters";
 import getCharacters from "../../services/getCharacters";
 import { useEffect, useState } from "react";
+import Loader from "../../Components/Loader/Loader";
+import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
 import Grid from "../../Components/Grid/Grid";
 
 const SearchPage = () => {
   const [characters, setCharacters] = useState([]);
   const [info, setInfo] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const [config, setConfig] = useState({
     name: null,
@@ -68,13 +72,21 @@ const SearchPage = () => {
   };
 
   const fetchCharacters = async (config) => {
-    try {
-      const characters = await getCharacters(config);
-      setCharacters(characters.results);
-      setInfo(characters.info);
-    } catch (error) {
-      setCharacters([]);
+    setIsLoading(true);
+    setCharacters([]);
+    setInfo({});
+    const data = await getCharacters(config);
+
+    if (data.error) {
+      setError(data);
+      setIsLoading(false);
+      return;
     }
+
+    setCharacters(data.results);
+    setInfo(data.info);
+    setIsLoading(false);
+    setError(null);
   };
 
   useEffect(() => {
@@ -101,7 +113,13 @@ const SearchPage = () => {
 
       <div className={styles.content}>
         <div className={styles.grid}>
-          <Grid characters={characters} />
+          {isLoading ? (
+            <Loader />
+          ) : error ? (
+            <ErrorMessage message={error.message} />
+          ) : (
+            <Grid characters={characters} />
+          )}
         </div>
 
         <Pagination
