@@ -15,8 +15,11 @@ const getCharacters = async (filters = {}) => {
 
   const response = await fetch(url);
 
-  if (!response.ok) {
-    return [];
+  if (response.status === 404) {
+    return { error: true, message: "No characters found" };
+  }
+  if (response.status === 500) {
+    return { error: true, message: "Server error, please try again later" };
   }
 
   const data = await response.json();
