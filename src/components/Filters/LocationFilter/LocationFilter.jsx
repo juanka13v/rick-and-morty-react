@@ -18,7 +18,7 @@ const LocationFilter = ({ handleLocationId, locationId }) => {
 
   return (
     <section className={styles.container}>
-      <Accordion open="true" title="Locations">
+      <Accordion title="Locations">
         <div className={styles.accordion}>
           {DataLocations.map((item) => (
             <Tag
