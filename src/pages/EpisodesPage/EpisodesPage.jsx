@@ -4,22 +4,37 @@ import EpisodeFilter from "../../Components/Filters/EpisodeFilter//EpisodeFilter
 import { useState, useEffect } from "react";
 import getEpisodeById from "../../services/getEpisodeById";
 import getCharactersByUrls from "../../services/getCharactersByUrls";
+import Loader from "../../Components/Loader/Loader";
+import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
 
 const EpisodesPage = () => {
   const [episodeId, setEpisodeId] = useState(1);
   const [episode, setEpisode] = useState({});
   const [characters, setCharacters] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const handleEpisode = (newEpisode) => {
     setEpisodeId(newEpisode);
   };
 
   const fetchEpisode = async (id) => {
+    setCharacters([]);
+    setEpisode({});
+    setIsLoading(true);
+
     const data = await getEpisodeById(id);
-    console.log(data);
-    setEpisode(data);
+
+    if (data.error) {
+      setError(data);
+      setIsLoading(false);
+    }
+
     const charactersData = await getCharactersByUrls(data.characters);
+    setEpisode(data);
     setCharacters(charactersData);
+    setIsLoading(false);
+    setError(null);
   };
 
   useEffect(() => {
@@ -30,17 +45,23 @@ const EpisodesPage = () => {
     <main className={styles.container}>
       <div className={styles.content}>
         <h2 className={styles.name}>
-          Episode: <span>{episode?.name}</span>
+          Episode: <span>{episode?.name || "unknown"}</span>
         </h2>
-        <p className={styles.episode}>{episode?.episode}</p>
+        <p className={styles.episode}>{episode?.episode || "unknown"}</p>
         <p className={styles.date}>
-          date air: <span>{episode?.air_date}</span>
+          date air: <span>{episode?.air_date || "unknown"}</span>
         </p>
       </div>
 
       <EpisodeFilter episode={episodeId} handleEpisode={handleEpisode} />
 
-      <Grid characters={characters} />
+      {isLoading ? (
+        <Loader />
+      ) : error ? (
+        <ErrorMessage message={error.message} />
+      ) : (
+        <Grid characters={characters} />
+      )}
     </main>
   );
 };
