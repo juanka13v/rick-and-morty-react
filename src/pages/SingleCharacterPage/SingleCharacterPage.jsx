@@ -3,24 +3,43 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import getCharacterById from "../../services/getCharacterById.jsx";
 import extractEpisodeNumbers from "../../helpers/extractEpisodeNumbers.jsx";
+import Loader from "../../Components/Loader/Loader.jsx";
+import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage.jsx";
+import scrollToTop from "../../helpers/scrollToTop.jsx";
 
 const SingleCharacterPage = () => {
   const { id } = useParams();
-  const [character, setCharacter] = useState();
+  const [character, setCharacter] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const fetchCharacter = async () => {
+  const fetchCharacter = async (id) => {
+    setCharacter({});
+    setIsLoading(true);
     const character = await getCharacterById(id);
+
+    if (character.error) {
+      setError(character);
+      setIsLoading(false);
+      return;
+    }
+
     setCharacter(character);
     setIsLoading(false);
+    setError(null);
   };
 
   useEffect(() => {
-    fetchCharacter();
+    scrollToTop()
+    fetchCharacter(id);
   }, []);
 
   if (isLoading) {
-    return <span>Loading...</span>;
+    return <Loader />;
+  }
+
+  if (error) {
+    return <ErrorMessage message={error.message} />;
   }
 
   return (
