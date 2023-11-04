@@ -18,7 +18,7 @@ const EpisodeFilter = ({ episode, handleEpisode }) => {
 
   return (
     <section className={styles.container}>
-      <Accordion title="Episodes" open={true}>
+      <Accordion title="Episodes">
         <div className={styles.accordion}>
           {DataEpisodes.map((item) => (
             <div className={styles.season} key={`season_${item.season}`}>
