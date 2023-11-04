@@ -27,6 +27,7 @@ const LocationsPage = () => {
     if (data.error) {
       setError(data);
       setIsLoading(false);
+      return
     }
 
     const dataCharacters = await getCharactersByUrls(data.residents);
