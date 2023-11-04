@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Loader from "../../Components/Loader/Loader";
 import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
 import Grid from "../../Components/Grid/Grid";
+import MetaTags from "../../Components/MetaTags/MetaTags";
 
 const SearchPage = () => {
   const [characters, setCharacters] = useState([]);
@@ -95,6 +96,12 @@ const SearchPage = () => {
 
   return (
     <main className={styles.container}>
+      <MetaTags
+        title={`${info.name || "Search Characters"} || Rick and morty`}
+        description={
+          "Search and filter through the vast array of characters from the Rick and Morty universe. Discover intriguing details about your favorite characters, locations, and episodes, and explore the multiverse like never before."
+        }
+      />
       <div className={styles.header}>
         <h2>Search Characters</h2>
         <SearchInput size="big" onChange={handleName} name={config.name} />

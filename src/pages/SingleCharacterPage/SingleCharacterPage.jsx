@@ -6,6 +6,7 @@ import extractEpisodeNumbers from "../../helpers/extractEpisodeNumbers.jsx";
 import Loader from "../../Components/Loader/Loader.jsx";
 import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage.jsx";
 import scrollToTop from "../../helpers/scrollToTop.jsx";
+import MetaTags from "../../Components/MetaTags/MetaTags.jsx";
 
 const SingleCharacterPage = () => {
   const { id } = useParams();
@@ -30,7 +31,7 @@ const SingleCharacterPage = () => {
   };
 
   useEffect(() => {
-    scrollToTop()
+    scrollToTop();
     fetchCharacter(id);
   }, []);
 
@@ -44,6 +45,12 @@ const SingleCharacterPage = () => {
 
   return (
     <main className={styles.container}>
+      <MetaTags
+        title={`${character?.name || "Character"} | Rick and Morty`}
+        description={
+          "Dive into the detailed profiles of each character from the Rick and Morty universe. Discover unique insights about your favorite characters, their origins, and appearances in various episodes and locations."
+        }
+      />
       <figure className={styles.image}>
         <img src={character?.image} alt={character?.name} />
       </figure>

@@ -6,6 +6,7 @@ import getCharactersByUrls from "../../services/getCharactersByUrls";
 import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
 import Loader from "../../Components/Loader/Loader";
 import { useEffect, useState } from "react";
+import MetaTags from "../../Components/MetaTags/MetaTags";
 
 const LocationsPage = () => {
   const [locationId, setLocationId] = useState(1);
@@ -27,7 +28,7 @@ const LocationsPage = () => {
     if (data.error) {
       setError(data);
       setIsLoading(false);
-      return
+      return;
     }
 
     const dataCharacters = await getCharactersByUrls(data.residents);
@@ -43,6 +44,12 @@ const LocationsPage = () => {
 
   return (
     <main className={styles.container}>
+      <MetaTags
+        title={`${location?.name || "Location"} | Rick and Morty`}
+        description={
+          "Explore the diverse inhabitants of every location in the Rick and Morty universe. Discover unique insights about the characters who call these places home, and delve deeper into the multiverse"
+        }
+      />
       <div className={styles.content}>
         <h2 className={styles.location}>
           Location: <span>{location?.name || "unknown"}</span>

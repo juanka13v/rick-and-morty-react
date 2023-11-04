@@ -6,6 +6,7 @@ import getEpisodeById from "../../services/getEpisodeById";
 import getCharactersByUrls from "../../services/getCharactersByUrls";
 import Loader from "../../Components/Loader/Loader";
 import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
+import MetaTags from "../../Components/MetaTags/MetaTags";
 
 const EpisodesPage = () => {
   const [episodeId, setEpisodeId] = useState(1);
@@ -28,7 +29,7 @@ const EpisodesPage = () => {
     if (data.error) {
       setError(data);
       setIsLoading(false);
-      return
+      return;
     }
 
     const charactersData = await getCharactersByUrls(data.characters);
@@ -44,6 +45,12 @@ const EpisodesPage = () => {
 
   return (
     <main className={styles.container}>
+      <MetaTags
+        title={`${episode?.name || "Episode"} | Rick and Morty`}
+        description={
+          "Dive into the exciting lineup of characters who appear in each episode of the Rick and Morty series. Find out which favorite characters are making an appearance and get a deeper understanding of the multiverse"
+        }
+      />
       <div className={styles.content}>
         <h2 className={styles.name}>
           Episode: <span>{episode?.name || "unknown"}</span>
