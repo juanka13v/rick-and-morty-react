@@ -7,6 +7,7 @@ import getCharactersByUrls from "../../services/getCharactersByUrls";
 import Loader from "../../Components/Loader/Loader";
 import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
 import MetaTags from "../../Components/MetaTags/MetaTags";
+import scrollToTop from "../../helpers/scrollToTop";
 
 const EpisodesPage = () => {
   const [episodeId, setEpisodeId] = useState(1);
@@ -40,6 +41,7 @@ const EpisodesPage = () => {
   };
 
   useEffect(() => {
+    scrollToTop();
     fetchEpisode(episodeId);
   }, [episodeId]);
 

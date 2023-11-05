@@ -8,6 +8,7 @@ import Loader from "../../Components/Loader/Loader";
 import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
 import Grid from "../../Components/Grid/Grid";
 import MetaTags from "../../Components/MetaTags/MetaTags";
+import scrollToTop from "../../helpers/scrollToTop";
 
 const SearchPage = () => {
   const [characters, setCharacters] = useState([]);
@@ -91,6 +92,7 @@ const SearchPage = () => {
   };
 
   useEffect(() => {
+    scrollToTop();
     fetchCharacters(config);
   }, [config]);
 

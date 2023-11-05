@@ -7,6 +7,7 @@ import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
 import Loader from "../../Components/Loader/Loader";
 import { useEffect, useState } from "react";
 import MetaTags from "../../Components/MetaTags/MetaTags";
+import scrollToTop from "../../helpers/scrollToTop";
 
 const LocationsPage = () => {
   const [locationId, setLocationId] = useState(1);
@@ -39,6 +40,7 @@ const LocationsPage = () => {
   };
 
   useEffect(() => {
+    scrollToTop()
     fetchLocation(locationId);
   }, [locationId]);
 

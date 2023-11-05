@@ -6,6 +6,7 @@ import CustomSlider from "../../Components/CustomSlider/CustomSlider";
 import Loader from "../../Components/Loader/Loader";
 import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
 import MetaTags from "../../Components/MetaTags/MetaTags";
+import scrollToTop from "../../helpers/scrollToTop";
 
 const Home = () => {
   const [characters, setCharacters] = useState([]);
@@ -29,6 +30,7 @@ const Home = () => {
   };
 
   useEffect(() => {
+    scrollToTop()
     fetchCharacters();
   }, []);
 
@@ -54,7 +56,7 @@ const Home = () => {
       </main>
 
       {isLoading ? (
-        <Loader />
+        <Loader size="120px" padding="50px" />
       ) : error ? (
         <ErrorMessage message={error.message} />
       ) : (
@@ -62,6 +64,30 @@ const Home = () => {
           characters={characters}
           title="By Characters"
           link="/search"
+        />
+      )}
+
+      {isLoading ? (
+        <Loader size="120px" padding="50px" />
+      ) : error ? (
+        <ErrorMessage message={error.message} />
+      ) : (
+        <CustomSlider
+          characters={characters}
+          title="By Episodes"
+          link="/episodes"
+        />
+      )}
+
+      {isLoading ? (
+        <Loader size="120px" padding="50px" />
+      ) : error ? (
+        <ErrorMessage message={error.message} />
+      ) : (
+        <CustomSlider
+          characters={characters}
+          title="By Locations"
+          link="/locations"
         />
       )}
     </div>
