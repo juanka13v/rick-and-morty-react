@@ -16,7 +16,6 @@ const Pagination = ({ info, currentPage, handlePage }) => {
           className={`${styles.btn} ${styles.item}`}
           onClick={() => {
             handlePage(currentPage - 1);
-            scrollToTop();
           }}
         >
           <i className="bx bx-left-arrow-alt"></i>
@@ -28,7 +27,6 @@ const Pagination = ({ info, currentPage, handlePage }) => {
           className={`${styles.item} ${page === currentPage && styles.active}`}
           onClick={() => {
             handlePage(page);
-            scrollToTop();
           }}
           key={page}
         >
@@ -41,7 +39,6 @@ const Pagination = ({ info, currentPage, handlePage }) => {
           className={`${styles.btn} ${styles.item}`}
           onClick={() => {
             handlePage(currentPage + 1);
-            scrollToTop();
           }}
         >
           <i className="bx bx-right-arrow-alt"></i>
