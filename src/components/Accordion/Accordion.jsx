@@ -11,7 +11,7 @@ const Accordion = ({ children, title, open = false, bodyStyles }) => {
   return (
     <div className={styles.accordion}>
       <div className={styles.header}>
-        <h2>{title}</h2>
+        <h2 className={styles.title}>{title}</h2>
         <span onClick={handleOpen}>
           <i className={`bx bx-chevron-down ${isOpen && styles.icon}`}></i>
         </span>

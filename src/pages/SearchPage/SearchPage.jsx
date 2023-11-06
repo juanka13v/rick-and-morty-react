@@ -105,7 +105,7 @@ const SearchPage = () => {
         }
       />
       <div className={styles.header}>
-        <h2>Search Characters</h2>
+        <h2 className={styles.titlePage}>Search Characters</h2>
         <SearchInput size="big" onChange={handleName} name={config.name} />
         <p className={styles.reset} onClick={handleReset}>
           reset filters
