@@ -27,6 +27,8 @@ const LocationsPage = () => {
   const fetchLocation = async (id) => {
     setLocation({});
     setCharacters([]);
+    setIsLoading(true);
+    setError(null);
 
     const data = await getLocationById(id);
 
