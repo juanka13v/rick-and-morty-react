@@ -1,0 +1,22 @@
+.App-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+@media (width < 1140px) {
+  .App-container {
+    padding: 0 2rem;
+  }
+}
+
+@media (width < 768px) {
+  .App-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (width < 480px) {
+  .App-container {
+    padding: 0 1rem;
+  }
+}

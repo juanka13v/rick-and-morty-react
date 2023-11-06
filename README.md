@@ -1,25 +1,7 @@
-### Pages
-- Home
-- Search
+### TODO:
 
-### Components
-- Header
-- Footer
-- Button
-- Search
-- Filter
+- add meta title and meta description
+- catch errors in services 
+- add skeleton to components
 
-
-### Desing Page
-
-# Home 
-- Main Title
-- Search
-- slider characters
-- episodes
-- localations 
-
-# Search
-- Search
-- filter
-- Grid Cards
+- add scroll to top to pages
