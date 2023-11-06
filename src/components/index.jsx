@@ -1,0 +1,20 @@
+// src/components/index.js
+export { default as Accordion } from "./Accordion/Accordion";
+export { default as Arrow } from "./Arrow/Arrow";
+export { default as Button } from "./Button/Button";
+export { default as Card } from "./Card/Card";
+export { default as CustomSlider } from "./CustomSlider/CustomSlider";
+export { default as ErrorMessage } from "./ErrorMessage/ErrorMessage";
+export { default as CharacterFilters } from "./Filters/CharacterFilters/CharacterFilters";
+export { default as EpisodeFilter } from "./Filters/EpisodeFilter/EpisodeFilter";
+export { default as LocationFilter } from "./Filters/LocationFilter/LocationFilter";
+export { default as Footer } from "./Footer/Footer";
+export { default as Grid } from "./Grid/Grid";
+export { default as Header } from "./Header/Header";
+export { default as Loader } from "./Loader/Loader";
+export { default as Logo } from "./Logo/Logo";
+export { default as MetaTags } from "./MetaTags/MetaTags";
+export { default as Pagination } from "./Pagination/Pagination";
+export { default as SearchInput } from "./SearchInput/SearchInput";
+export { default as SlideCard } from "./SliderCard/SliderCard";
+export { default as Tag } from "./Tag/Tag";

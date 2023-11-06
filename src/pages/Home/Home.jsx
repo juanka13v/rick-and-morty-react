@@ -1,15 +1,22 @@
 import styles from "./Home.module.css";
-import SearchInput from "../../Components/SearchInput/SearchInput";
-import getCharacters from "../../services/getCharacters";
-import getCharactersByUrls from "../../services/getCharactersByUrls";
-import getEpisodeById from "../../services/getEpisodeById";
-import getLocationById from "../../services/getLocationById";
 import { useEffect, useState } from "react";
-import CustomSlider from "../../Components/CustomSlider/CustomSlider";
-import Loader from "../../Components/Loader/Loader";
-import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
-import MetaTags from "../../Components/MetaTags/MetaTags";
-import scrollToTop from "../../helpers/scrollToTop";
+
+import {
+  SearchInput,
+  Loader,
+  ErrorMessage,
+  CustomSlider,
+  MetaTags,
+} from "@components";
+
+import {
+  getCharacters,
+  getCharactersByUrls,
+  getEpisodeById,
+  getLocationById,
+} from "@services";
+
+import { scrollToTop } from "@helpers";
 
 const Home = () => {
   const [sliderCharacters, setSliderCharacters] = useState({

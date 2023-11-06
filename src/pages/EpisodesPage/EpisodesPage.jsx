@@ -1,13 +1,17 @@
 import styles from "./EpisodesPage.module.css";
-import Grid from "../../Components/Grid/Grid";
-import EpisodeFilter from "../../Components/Filters/EpisodeFilter//EpisodeFilter";
 import { useState, useEffect } from "react";
-import getEpisodeById from "../../services/getEpisodeById";
-import getCharactersByUrls from "../../services/getCharactersByUrls";
-import Loader from "../../Components/Loader/Loader";
-import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
-import MetaTags from "../../Components/MetaTags/MetaTags";
-import scrollToTop from "../../helpers/scrollToTop";
+
+import {
+  Grid,
+  EpisodeFilter,
+  MetaTags,
+  Loader,
+  ErrorMessage,
+} from "@components";
+
+import { getCharactersByUrls, getEpisodeById } from "@services";
+
+import { scrollToTop } from "@helpers";
 
 const EpisodesPage = () => {
   const [episodeId, setEpisodeId] = useState(1);

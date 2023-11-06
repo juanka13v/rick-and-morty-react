@@ -1,11 +1,10 @@
 import styles from "./NotFound.module.css";
-import NotFoundSVG from "../../assets/not_found.svg";
-import Button from "../../Components/Button/Button";
 import { Link, useNavigate } from "react-router-dom";
+import NotFoundSVG from "../../assets/not_found.svg";
+import { Button } from "@components";
 
 const NotFound = () => {
   const navigate = useNavigate();
-  
 
   return (
     <main className={styles.container}>

@@ -1,12 +1,12 @@
 import styles from "./SingleCharacterPage.module.css";
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import getCharacterById from "../../services/getCharacterById.jsx";
-import extractEpisodeNumbers from "../../helpers/extractEpisodeNumbers.jsx";
-import Loader from "../../Components/Loader/Loader.jsx";
-import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage.jsx";
-import scrollToTop from "../../helpers/scrollToTop.jsx";
-import MetaTags from "../../Components/MetaTags/MetaTags.jsx";
+import { useParams } from "react-router-dom";
+
+import { MetaTags, Loader, ErrorMessage } from "@components";
+
+import { getCharacterById } from "@services";
+
+import { extractEpisodeNumbers, scrollToTop } from "@helpers";
 
 const SingleCharacterPage = () => {
   const { id } = useParams();

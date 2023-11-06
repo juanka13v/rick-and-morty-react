@@ -1,13 +1,17 @@
 import styles from "./LocationsPage.module.css";
-import LocationFilter from "../../Components/Filters/LocationFilter/LocationFilter";
-import Grid from "../../Components/Grid/Grid";
-import getLocationById from "../../services/getLocationById";
-import getCharactersByUrls from "../../services/getCharactersByUrls";
-import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
-import Loader from "../../Components/Loader/Loader";
 import { useEffect, useState } from "react";
-import MetaTags from "../../Components/MetaTags/MetaTags";
-import scrollToTop from "../../helpers/scrollToTop";
+
+import {
+  LocationFilter,
+  Grid,
+  ErrorMessage,
+  Loader,
+  MetaTags,
+} from "@components";
+
+import { getCharactersByUrls, getLocationById } from "@services";
+
+import { scrollToTop } from "@helpers";
 
 const LocationsPage = () => {
   const [locationId, setLocationId] = useState(1);
@@ -40,7 +44,7 @@ const LocationsPage = () => {
   };
 
   useEffect(() => {
-    scrollToTop()
+    scrollToTop();
     fetchLocation(locationId);
   }, [locationId]);
 

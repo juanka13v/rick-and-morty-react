@@ -1,14 +1,19 @@
 import styles from "./SearchPage.module.css";
-import SearchInput from "../../Components/SearchInput/SearchInput";
-import Pagination from "../../Components/Pagination/Pagination";
-import CharacterFilters from "../../Components/Filters/CharacterFilters/CharacterFilters";
-import getCharacters from "../../services/getCharacters";
 import { useEffect, useState } from "react";
-import Loader from "../../Components/Loader/Loader";
-import ErrorMessage from "../../Components/ErrorMessage/ErrorMessage";
-import Grid from "../../Components/Grid/Grid";
-import MetaTags from "../../Components/MetaTags/MetaTags";
-import scrollToTop from "../../helpers/scrollToTop";
+
+import {
+  SearchInput,
+  Pagination,
+  CharacterFilters,
+  Loader,
+  ErrorMessage,
+  Grid,
+  MetaTags,
+} from "@components";
+
+import { getCharacters } from "@services";
+
+import { scrollToTop } from "@helpers";
 
 const SearchPage = () => {
   const [characters, setCharacters] = useState([]);
