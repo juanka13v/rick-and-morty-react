@@ -1,7 +1,7 @@
 import styles from "./Header.module.css";
 import { Link, useLocation } from "react-router-dom";
-import Logo from "../Logo/Logo";
-import { useState } from "react";
+import { Logo } from "@components";
+import { useEffect, useState } from "react";
 
 const navs = [
   {
@@ -28,10 +28,27 @@ const Header = () => {
     setMenu(!menu);
   };
 
+  const closeMenu = () => {
+    setMenu(false);
+  };
+
+  useEffect(() => {
+    if (menu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    // Limpiar el efecto cuando el componente se desmonta
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [menu]);
+
   return (
     <div className={styles.header}>
-      <div className="logo">
-        <Logo size="small" />
+      <div className="logo" onClick={closeMenu}>
+        <Logo size="small"  />
       </div>
 
       <div className={styles.menu} onClick={handleMenu}>
@@ -45,7 +62,9 @@ const Header = () => {
               className={`${styles.item} ${path === nav.path && styles.active}`}
               key={nav.name}
             >
-              <Link to={nav.path}>{nav.name}</Link>
+              <Link to={nav.path} onClick={closeMenu}>
+                {nav.name}
+              </Link>
             </li>
           ))}
         </ul>
