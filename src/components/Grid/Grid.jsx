@@ -1,9 +1,9 @@
-import Card from "../Card/Card";
 import styles from "./Grid.module.css";
+import {Card, ErrorMessage} from "@components";
 
 const Grid = ({ characters }) => {
   if (!characters || characters.length < 1) {
-    return null;
+    return <ErrorMessage message="Not found characters." />;
   }
 
   return (
