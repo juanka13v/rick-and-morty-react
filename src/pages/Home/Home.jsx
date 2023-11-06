@@ -1,6 +1,9 @@
 import styles from "./Home.module.css";
 import SearchInput from "../../Components/SearchInput/SearchInput";
 import getCharacters from "../../services/getCharacters";
+import getCharactersByUrls from "../../services/getCharactersByUrls";
+import getEpisodeById from "../../services/getEpisodeById";
+import getLocationById from "../../services/getLocationById";
 import { useEffect, useState } from "react";
 import CustomSlider from "../../Components/CustomSlider/CustomSlider";
 import Loader from "../../Components/Loader/Loader";
@@ -9,29 +12,101 @@ import MetaTags from "../../Components/MetaTags/MetaTags";
 import scrollToTop from "../../helpers/scrollToTop";
 
 const Home = () => {
-  const [characters, setCharacters] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [sliderCharacters, setSliderCharacters] = useState({
+    characters: [],
+    isLoading: true,
+    error: null,
+  });
+
+  const [sliderByEpisode, setSliderByEpisode] = useState({
+    episode: "",
+    characters: [],
+    isLoading: true,
+    error: null,
+  });
+
+  const [sliderByLocation, setSliderByLocation] = useState({
+    location: "",
+    characters: [],
+    isLoading: true,
+    error: null,
+  });
 
   const fetchCharacters = async () => {
-    setCharacters([]);
+    setSliderCharacters({
+      characters: {},
+      isLoading: true,
+      error: null,
+    });
 
-    const characters = await getCharacters();
+    const data = await getCharacters();
 
-    if (characters.error) {
-      setError(characters);
-      setIsLoading(false);
+    if (data.error) {
+      setSliderCharacters({
+        isLoading: false,
+        error: data,
+      });
       return;
     }
 
-    setCharacters(characters.results.slice(0, 10));
-    setIsLoading(false);
-    setError(null);
+    setSliderCharacters({
+      characters: data.results.slice(0, 9),
+      isLoading: false,
+    });
+  };
+
+  const fetchCharactersByEpisode = async () => {
+    setSliderByEpisode({
+      episode: "",
+      characters: [],
+      isLoading: true,
+      error: null,
+    });
+
+    const data = await getEpisodeById(2);
+
+    if (data.error) {
+      setSliderByEpisode({ isLoading: false, error: data });
+      return;
+    }
+
+    const characters = await getCharactersByUrls(data.characters.slice(0, 9));
+
+    setSliderByEpisode({ episode: data.name, characters, isLoading: false });
+  };
+
+  const fetchCharactersByLocation = async () => {
+    setSliderByLocation({
+      episode: "",
+      characters: [],
+      isLoading: true,
+      error: null,
+    });
+
+    const data = await getLocationById(1);
+
+    if (data.error) {
+      setSliderByLocation({
+        error: data,
+        isLoading: false,
+      });
+      return;
+    }
+
+    const characters = await getCharactersByUrls(data.residents.slice(0, 9));
+
+    setSliderByLocation({
+      location: data.name,
+      characters: characters,
+      isLoading: false,
+    });
   };
 
   useEffect(() => {
-    scrollToTop()
+    scrollToTop();
     fetchCharacters();
+    fetchCharactersByEpisode();
+    fetchCharactersByLocation();
   }, []);
 
   return (
@@ -55,38 +130,38 @@ const Home = () => {
         <SearchInput size="big" />
       </main>
 
-      {isLoading ? (
+      {sliderCharacters.isLoading ? (
         <Loader size="120px" padding="50px" />
-      ) : error ? (
-        <ErrorMessage message={error.message} />
+      ) : sliderCharacters.error ? (
+        <ErrorMessage message={sliderCharacters.error.message} />
       ) : (
         <CustomSlider
-          characters={characters}
+          characters={sliderCharacters.characters}
           title="By Characters"
           link="/search"
         />
       )}
 
-      {isLoading ? (
+      {sliderByEpisode.isLoading ? (
         <Loader size="120px" padding="50px" />
-      ) : error ? (
-        <ErrorMessage message={error.message} />
+      ) : sliderByEpisode.error ? (
+        <ErrorMessage message={sliderByEpisode.error.message} />
       ) : (
         <CustomSlider
-          characters={characters}
-          title="By Episodes"
+          characters={sliderByEpisode.characters}
+          title={`By Episode: ${sliderByEpisode.episode}`}
           link="/episodes"
         />
       )}
 
-      {isLoading ? (
+      {sliderByLocation.isLoading ? (
         <Loader size="120px" padding="50px" />
-      ) : error ? (
-        <ErrorMessage message={error.message} />
+      ) : sliderByLocation.error ? (
+        <ErrorMessage message={sliderByLocation.error.message} />
       ) : (
         <CustomSlider
-          characters={characters}
-          title="By Locations"
+          characters={sliderByLocation.characters}
+          title={`By Locations: ${sliderByLocation.location}`}
           link="/locations"
         />
       )}
