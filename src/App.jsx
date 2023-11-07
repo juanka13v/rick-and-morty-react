@@ -1,13 +1,16 @@
 import "./App.css";
-import Home from "./pages/Home/Home";
-import NotFound from "./pages/NotFound/NotFound";
-import SearchPage from "./pages/SearchPage/SearchPage";
-import LocationsPage from "./pages/LocationsPage/LocationsPage";
-import EpisodesPage from "./pages/EpisodesPage/EpisodesPage";
-import Header from "./Components/Header/Header";
-import Footer from "./Components/Footer/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SingleCharacterPage from "./pages/SingleCharacterPage/SingleCharacterPage";
+
+import {
+  Home,
+  NotFound,
+  SearchPage,
+  LocationsPage,
+  EpisodesPage,
+  SingleCharacterPage,
+} from "@pages";
+
+import { Header, Footer } from "@components";
 
 function App() {
   return (
