@@ -7,13 +7,13 @@ This is a responsive React application that uses the [Rick and Morty API](https:
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/juanka13v/rick-and-morty-react.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd rick-and-morty-react
 ```
 
 Install dependencies
@@ -32,7 +32,7 @@ Start the server
 
 To see a demo of this project, please visit the following link:
 
-[Link to demo]
+[https://rickandmorty-juanka13v.netlify.app/]
 
 ## Screenshots
 
